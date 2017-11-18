@@ -25,12 +25,13 @@ object Main {
 
     path("api" / "ts" / Remaining) { timeSeriesId =>
       post {
-        entity(as[String]){ data => DataHandler.raw(timeSeriesId) }
+        entity(as[String]) { data => DataHandler.raw(timeSeriesId) }
       }
     } ~ pathPrefix("app") {
-      getFromDirectory("../webapp")
+      getFromDirectory("webapp")
+    } ~ pathPrefix("data") {
+      getFromDirectory("testdata")
     }
-
   }
 
   def main(args: Array[String]) {
@@ -46,7 +47,7 @@ object Main {
   }
 
   def parseArg(args: Array[String]): Params = {
-    val dataPath = stringArg(args, "data-path", "../testdata")
+    val dataPath = stringArg(args, "data-path", "testdata")
     Params(dataPath)
   }
 }

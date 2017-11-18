@@ -1,9 +1,8 @@
 package pl.klangner.tsl
 
-
-object IndexMain {
+object ProjectMain {
 
   def main(args: Array[String]): Unit = {
-    println("Hello from the index page!")
+    println("Hello from the project page!")
   }
 }

@@ -13,7 +13,7 @@ import scala.concurrent.duration.Duration
 
 object Main {
 
-  private val Log = LoggerFactory.getLogger(Main.getClass.getName)
+  private val Log = LoggerFactory.getLogger(getClass.getName)
 
   implicit val system: ActorSystem = ActorSystem("time-series-lab")
   implicit val materializer: ActorMaterializer = ActorMaterializer()
@@ -28,7 +28,7 @@ object Main {
         entity(as[String]){ data => DataHandler.raw(timeSeriesId) }
       }
     } ~ pathPrefix("app") {
-      getFromDirectory("static")
+      getFromDirectory("../webapp")
     }
 
   }
@@ -46,7 +46,7 @@ object Main {
   }
 
   def parseArg(args: Array[String]): Params = {
-    val dataPath = stringArg(args, "data-path", "data")
+    val dataPath = stringArg(args, "data-path", "../testdata")
     Params(dataPath)
   }
 }

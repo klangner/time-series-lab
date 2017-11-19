@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Time Series Lab : Prediction</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendor/metrics-graphics/metricsgraphics.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/default.css" rel="stylesheet">
+</head>
+
+<body>
+
+<nav aria-label="breadcrumb" role="navigation">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="/app/index.html">
+                <img src="/app/images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="logo">
+            </a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Prediction</li>
+    </ol>
+</nav>
+
+
+<main role="main" class="container">
+
+    <div class="main-page">
+      <div class="row">
+        <div class="col-sm">
+          <h2>Datasets</h2>
+        </div>
+        <div class="col-sm">
+        </div>
+        <div class="col-sm" style="text-align: right">
+          <button type="button" class="btn btn-primary">Add data</button>
+        </div>
+      </div>
+
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Dataset name</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Electricity demand</td>
+        </tr>
+        </tbody>
+      </table>
+
+      <div class="row">
+        <div class="col-sm">
+          <h2>Insights</h2>
+        </div>
+        <div class="col-sm">
+        </div>
+        <div class="col-sm" style="text-align: right">
+          <button type="button" class="btn btn-primary">Add insight</button>
+        </div>
+      </div>
+
+      <div id="chart1" width="100%" height="400px">
+
+      </div>
+
+      <div>
+        <h4>Prediction insight specification</h4>
+        <ul>
+          <li>Single Time Series from the datasets</li>
+          <li>Prediction range</li>
+          <li>Prediction is given as a probability distribution</li>
+          <li>Maybe show also the explanation (trend, seasonality, random parts)</li>
+        </ul>
+
+      </div>
+
+    </div> <!-- main-page -->
+
+</main>
+
+<script>
+window.onload = function(e){
+  MG.data_graphic({
+      title: 'Next year prediction',
+      description: 'Enargey usage prediction for the next year.',
+      data: [{value:10,date:"2015"}, {value:20,date:"2016"}, {value:45,date:"2016"}],
+      width: 600,
+      height: 250,
+      target: '#chart1', // the html element that the graphic is inserted in
+      x_accessor: 'date',  // the key that accesses the x value
+      y_accessor: 'value' // the key that accesses the y value
+  })
+}
+</script>
+
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="vendor/metrics-graphics/metricsgraphics.min.js"></script>
+</body>
+</html>
